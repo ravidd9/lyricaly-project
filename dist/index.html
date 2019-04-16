@@ -12,6 +12,7 @@
 
 <body>
 
+
     <div id="container">
 
         <div id="querySearch">
@@ -19,26 +20,37 @@
             <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
         </div>
 
-        <div id="songCard">
-            <div class="titleAndPic">
-                <span class="title">Title</span>
-                <span clas="pic">Pic</span>
-            </div>
-            <div class="lyricsAndSave">
-
-            </div>
-            <div class="appleMusic">Apple Music Link</div>
-        </div>
-
+        <div id="queryContainer"></div>
     </div>
+
 
     <script id="song-template" type="text/x-handlebars-template">
         {{#each songData}}
-        <div class="songCard" >
-                <div class="lyrics">{{lyrics}}</span>
-                <button class="saveBtn">Save</button>
-        {{/each}}
+        <div class="songCard" id="{{id}}">
 
+    <div class="titleArtistPic">
+                <div class="title">Song name : {{name}}
+                <div class="artist">Artist : {{artist}}</div>
+                <div class="album">Album name : {{album}}</div>
+
+                </div>
+                <img class="songPic" src="{{songPic}}">
+
+        </div>
+    <div class="lyricsAndSave">
+    <div class="lyrics">{{lyrics}}</div>
+    <i class="fas fa-plus-circle" onclick="querySave()"></i>
+
+    </div>
+    <div class="appleMusic">{{applePlayer}}</div>  
+        
+           
+
+        </div>
+        {{/each}}
+    </script>
+
+    <iframe src="https://genius.com/songs/3067667/apple_music_player" frameborder="0"></iframe>
 
     <script src="./jquery/dist/jquery.js"></script>
     <script src="./handlebars/dist/handlebars.js"></script>
@@ -46,5 +58,7 @@
     <script src="Renderer.js"></script>
     <script src="main.js"></script>
 </body>
+
+
 
 </html>
