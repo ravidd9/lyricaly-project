@@ -6,8 +6,14 @@ const songSchema = new Schema({
     name: String,
     id: Number,
     artist: String,
+    artistID: Number,
+    titleFeatured: String,
+    album: String,
+    albumID: Number,
     lyrics: String,
-    songPic: String
+    songPic: String,
+    applePlayer: String,
+    youTubePlayer: String
 })
 
 const Song = mongoose.model("Song", songSchema, "songs")
