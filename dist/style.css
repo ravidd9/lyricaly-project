@@ -1,0 +1,82 @@
+body {
+    margin: 0px;
+    /* color: white; */
+    background-color: #71A9F7;
+}
+
+#container {
+    font-family: Tahoma;
+    display: grid;
+    grid-template-columns: 2fr 5fr ;
+    grid-template-areas:
+
+    "s1 s1 s1 s1"
+    "s2 s2 s2 s2"
+    "sc sc sc sc"
+    "sc sc sc sc"
+
+}
+
+#songSearch {
+    display: grid;
+    grid-area: s1 ;
+    grid-template-columns: 4fr 1fr;
+    padding-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+#artistSearch {
+    display: grid;
+    grid-area: s2 ;
+    grid-template-columns: 4fr 1fr;
+    padding-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    box-sizing: border-box;
+    font-size: 250%;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+#songCard {
+    grid-area: sc ;
+    display: grid ;
+    width: 95% ;
+    margin: 20px;
+    background-color: rgb(106, 223, 223);
+    display: grid;
+    padding: 1%;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+        "tp tp tp tp"
+        "ls ls ls ls"
+        "am am am am"
+}
+
+.titleAndPic {
+    grid-area: tp ;
+    grid-template-columns: 4fr 1fr;
+
+}
+
+.lyricsAndSave {
+    grid-area: ls ;
+    grid-template-columns: 4fr 1fr;
+
+}
+
+.appleMusic {
+grid-area: am ;
+}
+
