@@ -64,11 +64,6 @@ input {
         "am am am am"
 }
 
-.titleAndPic {
-    grid-area: tp ;
-    grid-template-columns: 4fr 1fr;
-
-}
 
 .lyricsAndSave {
     grid-area: ls ;
@@ -80,3 +75,23 @@ input {
 grid-area: am ;
 }
 
+.titleArtistPic {
+    grid-area: tp ;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: 
+    "t t p"
+    "a a p"
+
+}
+
+.title {
+    grid-area: t ;
+}
+
+.artist {
+    grid-area: a ;
+}
+
+.songPic {
+    grid-area: p ;
+}

@@ -4,6 +4,6 @@ class Renderer {
         let source = $('#song-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template({songData});
-        $('.lyricsAndSave').empty().append(newHTML);
+        $('#queryContainer').empty().append(newHTML);
     }
 }

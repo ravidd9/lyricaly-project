@@ -9,17 +9,22 @@ class ApiManager {
         this.songData.push(songs)
     }
 
-    async getSongData(query) {
-        let song = await $.get(`/song/${query}`)
+    async getSongID(query) {
+        let id = await $.get(`/songID/${query}`)
+        getSongData(id)
+    }
+
+    async getSongData(id) {
+        let song = await $.get(`/song/${id}`)
         this.songData.push(song)
         console.log(this.songData)
     }
 
 
-    saveSong(songName) {
+    saveSong(songID) {
         let chosenSong
         for (let song of this.songData) {
-            if (song.name == songName) {
+            if (song.id == songID) {
                 chosenSong = song
             }
         }
