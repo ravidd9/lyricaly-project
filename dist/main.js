@@ -1,23 +1,12 @@
-let apiManager = new ApiManager ()
-let renderer = new Renderer ()
+let apiManager = new ApiManager()
+let renderer = new Renderer()
 
-let searchObj = {
-    song : "", 
-    artist : ""
-}
-
-const songSearch = async function(){
-    let songName = $("#songSearch").find("input").val()
-    searchObj.song = songName
-    console.log(searchObj)
       
-}
 
-const artistSearch = async function(){
-    let artistName = $("#artistSearch").find("input").val()
-    searchObj.artist = artistName
-    console.log(searchObj)
-    await apiManager.getSongData(searchObj)
-    renderer.render(apiManager.songData)
-    
+const querySearch = async function(){
+    let query = $("#querySearch").find("input").val()
+    if(query != ""){
+        await apiManager.getSongData(query)
+        renderer.render(apiManager.songData)
+    }
 }

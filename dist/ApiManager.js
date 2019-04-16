@@ -9,20 +9,10 @@ class ApiManager {
         this.songData.push(songs)
     }
 
-    async getSongData(searchObj) {
-
-        await $.get(`/song/${searchObj.song}/artist/${searchObj.artist}`, function (song) {
-            console.log(data)
-            let retrievedSong = {
-                songName: searchObj.song,
-                artistName : artistName,
-                lyrics : song.lyrics,
-                pic : song.songPic
-
-             }
-            this.songData.push(retrievedSong)
-            console.log(this.songData)
-        })
+    async getSongData(query) {
+        let song = await $.get(`/song/${query}`)
+        this.songData.push(song)
+        console.log(this.songData)
     }
 
 
