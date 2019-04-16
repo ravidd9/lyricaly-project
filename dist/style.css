@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     /* color: white; */
-    background-color: #71A9F7;
+    background-color:rgb(58, 141, 141);
 }
 
 #container {
@@ -53,9 +53,9 @@ input {
     display: grid ;
     width: 95% ;
     margin: 20px;
-    background-color: rgb(106, 223, 223);
+    background-color: rgb(58, 141, 141);
     display: grid;
-    padding: 1%;
+    padding: 10%;
     justify-items: center;
     align-items: center;
     grid-template-areas:
@@ -92,8 +92,10 @@ grid-area: am ;
     grid-area: a ;
 }
 
-.songPic {
+.img {
     grid-area: p ;
+    height : 150px;
+    width : 150px ;
 }
 .lyrics {
     overflow: auto;
