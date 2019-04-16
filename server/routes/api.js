@@ -32,8 +32,9 @@ router.get(`/songID/:songQuery`, function (req, res) {
     if (songQ) {
         request(`${apiURL}/search?client_id=${clientID}&client_secret=${clientS}
         &access_token=${clientT}&q=${songQ}`, async function (err, result) {
+            let body = JSON.parse(result.body)
             let id = body.response.hits[0].result.id
-            res.send(id)
+            res.send(id.toString())
         })
     }
 })

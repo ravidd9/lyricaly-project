@@ -1,39 +1,42 @@
 class ApiManager {
     constructor() {
-        this.songData = []
-
+        this.songData = {}
     }
 
     async getDataFromDB() {
         let songs = await $.get('/songs')
         this.songData.push(songs)
     }
-
+    
     async getSongID(query) {
         let id = await $.get(`/songID/${query}`)
-        getSongData(id)
+        await this.getSongData(parseInt(id))
     }
 
     async getSongData(id) {
         let song = await $.get(`/song/${id}`)
-        this.songData.push(song)
-        console.log(this.songData)
+        this.songData = song
     }
 
-
-    saveSong(songID) {
-        let chosenSong
-        for (let song of this.songData) {
-            if (song.id == songID) {
-                chosenSong = song
-            }
-        }
-        $.post(`/song`, chosenSong, function (song) {
+    async saveSong(songID) {
+        await $.post(`/song`, this.songData, function (song) {
             console.log("song sent!")
         })
     }
 
-    removeSong() {
+    async removeSong(songID) {
+        await $.ajax({
+            url: `/city/${songID}`,
+            type: 'DELETE',
+            success: function () {
 
+                console.log("song deleting!")
+            }
+        })
+        for (let i in this.songData){
+            if(this.songData[i].id == songID){
+                this.songData.splice(i, 1)
+            }
+        }
     }
 }

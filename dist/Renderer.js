@@ -3,7 +3,7 @@ class Renderer {
         console.log(songData)
         let source = $('#song-template').html();
         let template = Handlebars.compile(source);
-        let newHTML = template({songData});
+        let newHTML = template(songData);
         $('#queryContainer').empty().append(newHTML);
     }
 }

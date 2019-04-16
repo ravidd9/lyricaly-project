@@ -95,3 +95,7 @@ grid-area: am ;
 .songPic {
     grid-area: p ;
 }
+.lyrics {
+    overflow: auto;
+    display: inline-block;
+}
