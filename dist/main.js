@@ -1,5 +1,5 @@
-let tempManager = new TempManager
-let renderer = new Renderer
+let apiManager = new ApiManager ()
+let renderer = new Renderer ()
 
 let searchObj = {
     song : "", 
@@ -13,11 +13,11 @@ const songSearch = async function(){
       
 }
 
-const artistSearch = function(){
+const artistSearch = async function(){
     let artistName = $("#artistSearch").find("input").val()
     searchObj.artist = artistName
     console.log(searchObj)
-    await tempManager.getSongData(searchObj)
-    renderer.render(tempManager.songData)
+    await apiManager.getSongData(searchObj)
+    renderer.render(apiManager.songData)
     
 }
