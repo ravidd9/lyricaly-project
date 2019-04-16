@@ -2,17 +2,48 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
 </head>
 
 <body>
 
+    <div id="container">
+
+        <div id="songSearch">
+            <input type="text" placeholder="Song name...">
+            <i id="searchIcon" onclick="songSearch()" class="fas fa-search"></i>
+        </div>
+        <div id="artistSearch">
+            <input type="text" placeholder="Artist name...">
+            <i id="searchIcon" onclick="artistSearch()" class="fas fa-search"></i>
+        </div>
+
+        <div id="songCard">
+            <div class="titleAndPic">
+                <span class="title">Title</span>
+                <span clas="pic">Pic</span>
+            </div>
+            <div class="lyricsAndSave">
+
+            </div>
+            <div class="appleMusic">Apple Music Link</div>
+        </div>
+
+    </div>
+
+    <script id="song-template" type="text/x-handlebars-template">
+        {{#each songData}}
+        <div class="songCard" >
+                <div class="lyrics">{{lyrics}}</span>
+                <button class="saveBtn">Save</button>
+        {{/each}}
 
 
-
-
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
     <script src="main.js"></script>
 </body>
 
