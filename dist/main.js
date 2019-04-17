@@ -7,7 +7,7 @@ const querySearch = async function(){
     let query = $("#querySearch").find("input").val()
     if(query != ""){
         await apiManager.getSongID(query)
-        console.log("got data")
+        console.log(this.songData)
         renderer.render(apiManager.songData)
     }
 }
@@ -18,3 +18,11 @@ const querySave = async function(){
     
 }
 
+const queryDelete = async function(){
+    let id = $(this).closest(".songCard").attr('id')
+    console.log(id)
+    console.log("wow")
+
+    apiManager.removeSong(id)
+    
+}

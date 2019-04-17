@@ -26,7 +26,7 @@ class ApiManager {
 
     async removeSong(songID) {
         await $.ajax({
-            url: `/city/${songID}`,
+            url: `/song/${songID}`,
             type: 'DELETE',
             success: function () {
 
@@ -35,7 +35,7 @@ class ApiManager {
         })
         for (let i in this.songData){
             if(this.songData[i].id == songID){
-                this.songData.splice(i, 1)
+                this.songData = {}
             }
         }
     }
