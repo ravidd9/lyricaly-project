@@ -13,17 +13,32 @@ const lyricist = new Lyricist(clientT)
 
 const createSong = function (name, id, artist, artistID, titleFeatured,
     album, albumID, lyrics, songPic, applePlayer, youTubePlayer) {
-    let s1 = new Song({name, id, artist, artistID, titleFeatured,
-        album, albumID, lyrics, songPic, applePlayer, youTubePlayer})
+    let s1 = new Song({
+        name,
+        id,
+        artist,
+        artistID,
+        titleFeatured,
+        album,
+        albumID,
+        lyrics,
+        songPic,
+        applePlayer,
+        youTubePlayer
+    })
     return s1
 }
 
-const getLyrics = async function(id){
-    let song = await lyricist.song(id, {fetchLyrics: true})
+const getLyrics = async function (id) {
+    let song = await lyricist.song(id, {
+        fetchLyrics: true
+    })
     return song.lyrics
 }
-const getAlbum = async function(albumID){
-    let  album = await lyricist.album(albumID, { fetchTracklist: true });
+const getAlbum = async function (albumID) {
+    let album = await lyricist.album(albumID, {
+        fetchTracklist: true
+    });
     return album.songs
 }
 
@@ -34,7 +49,7 @@ router.get(`/songID/:songQuery`, function (req, res) {
         &access_token=${clientT}&q=${songQ}`, async function (err, result) {
             let body = JSON.parse(result.body)
             let ids = []
-            for(let hit of body.response.hits){
+            for (let hit of body.response.hits) {
                 ids.push(hit.result.id)
             }
             res.send(ids)
@@ -51,10 +66,18 @@ router.get(`/song/:id`, function (req, res) {
             let artist = body.response.song.primary_artist.name
             let artistID = body.response.song.primary_artist.id
             let titleFeatured = body.response.song.title_with_featured
-            let album = body.response.song.album.name
-            let albumID = body.response.song.album.id
+            let album
+            let albumID
+            if (body.response.song.album) {
+                album = body.response.song.album.name
+                albumID = body.response.song.album.id
+            }
+            else{
+                album = ""
+                albumID = ""
+            }
             let lyrics = await getLyrics(id)
-            let songPic = body.response.song.header_image_url
+            let songPic = body.response.song.header_image_thumbnail_url
             let applePlayer = body.response.song.apple_music_player_url
             let youTubePlayer = body.response.song.media[0].url
             let newSong = createSong(name, id, artist, artistID, titleFeatured,
@@ -80,7 +103,9 @@ router.post(`/song`, function (req, res) {
 
 router.delete(`/song/:songId`, function (req, res) {
     let songId = req.params.songId
-    Song.findOneAndDelete({id: songId}, () => {})
+    Song.findOneAndDelete({
+        id: songId
+    }, () => {})
 })
 
 
