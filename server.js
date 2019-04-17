@@ -4,7 +4,6 @@ const app = express()
 const bodyParser = require('body-parser')
 const api = require('./server/routes/api')
 const mongoose = require('mongoose')
-const City = require('./server/models/Song')
 mongoose.connect("mongodb://localhost/lyricalyDB", { useNewUrlParser: true })
 
 

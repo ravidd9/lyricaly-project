@@ -30,4 +30,12 @@ const queryDelete = async function(){
     loadPage()
 }
 
+const imageClick = async function(){
+    let id = $(this).closest(".songCard").attr("id")
+    console.log(id)
+    await apiManager.saveSong(id)
+    loadPage()
+}
+$("#container").on("click", ".circle", imageClick())
+
 loadPage()

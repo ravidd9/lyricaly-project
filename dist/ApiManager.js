@@ -38,6 +38,11 @@ class ApiManager {
     }
 
     async saveSong(songID) {
+        for(let fav of this.favorites){
+            if(fav.id == songID){
+                return;
+            }
+        }
         let song = await $.post(`/song`, this.songData)
         this.favorites.push(song)
     }

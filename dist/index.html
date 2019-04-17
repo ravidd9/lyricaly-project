@@ -37,11 +37,11 @@
               <div class="card">
                 <div class="card-image">
                   <img src="{{songPic}}">
-                  <span class="card-title">{{name}}</span>
+                  <span class="card-title blue-grey darken-4">{{name}}</span>
                 </div>
                 <div class="card-content">
                   <h5>{{artist}}</h5>
-                  <h5>{{album}}</h5>
+                  <h5>Album:  {{album}}</h5>
                 </div>
                 <div class="card-action">
                 </div>
@@ -50,7 +50,7 @@
           </div>
       <div class="lyricsAndSave">
         <div class="row">
-          <div class="col s6">
+          <div class="col s12">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title"></span>
@@ -73,10 +73,9 @@
     <div class="li songCard" id="{{id}}">
     <li class="collection-item avatar">
       <img src="{{songPic}}" alt="" class="circle">
-      <span class="title">{{name}}</span>
-      <p>{{artist}} <br>
-          {{album}}
-      </p>
+      <span>{{name}}</span><br>
+      <span>{{artist}}</span><br>
+      <span>{{album}}</span> 
     </li>
   </div>
     {{/each}}
