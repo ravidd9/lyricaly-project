@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cb6f604acf3f285"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cb6fd5316464be0"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -15,10 +16,15 @@
 <body>
   <div id="container">
     <div id="querySearch">
-      <input type="text" placeholder="enter search query here...">
-      <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
+<form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text" name="myCountry" placeholder="enter search query here...">
+        </div>
+        <span class="searchBtn" onclick="querySearch()">Submit</span>
+    </form>    </div>
+    <div id="queryContainer">
+
     </div>
-    <div id="queryContainer"></div>
     <div id="othersContainer">
       <h3>Other Results</h3>
       <ul class="collection others"></ul>
@@ -60,14 +66,15 @@
             </div>
           </div>
         </div>
-        <div class="addthis_inline_share_toolbox"></div>
+        <div class="addthis_inline_share_toolbox">DDDDDDDDDDDDD</div>
         <button class="btn waves-effect waves-light" type="submit" name="action" onclick="querySave()">
-          <i class="material-icons right">Save</i> 
-        </button>
-      </div>
-    </div>
-  </script>
-  <!--  --------------------------------------------------------- -->
+            <i class="material-icons right">Save</i> 
+          </button>
+        </div>
+        </div>
+        
+      </script>
+    <!--  --------------------------------------------------------- -->
   <script id="other-template" type="text/x-handlebars-template">
     {{#each others}}
     <div class="li songCard" id="{{id}}">
@@ -93,6 +100,7 @@
     </li>
   </div>
     {{/each}}
+    
 </script>
   <!--  --------------------------------------------------------- -->
 

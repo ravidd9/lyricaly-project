@@ -111,8 +111,26 @@ router.delete(`/song/:songId`, function (req, res) {
     }, () => {})
 })
 
+router.get(`/complete`, function (req, res){
+    AutoComplete.find({}).exec((err, autoCompletes) => {
+        let arr = []
+        for (let item of autoCompletes) {
+            arr.push(item.text)
+        }
+        res.send(arr)
+    })
 
+})
 
+router.post(`/complete/:query`, function (req, res) {
+    let query = req.params.query 
+    console.log(query) 
+    let autoComplete = new AutoComplete ( {
+        text : query
+    } )
+    autoComplete.save()
+    res.send(autoComplete)
+})
 
 
 module.exports = router
