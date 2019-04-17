@@ -17,6 +17,8 @@
             <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
         </div>
         <div id="queryContainer"></div>
+        <div id="otherContainer"></div>
+        <div id="favoritesContainer"></div>
     </div>
 
     <script id="song-template" type="text/x-handlebars-template">
@@ -71,6 +73,24 @@
             <!-- <div class="appleMusic">{{applePlayer}}</div>   -->
         </div>
     </script>
+<!--  --------------------------------------------------------- -->
+<script id="other-template" type="text/x-handlebars-template">
+    <div class="minimizedSongCard" id="{{id}}">
+        <div class="miniPic"><img src="{{songPic}}"></div>
+        <div class="miniTitle">{{name}}</div>
+        <div class="miniArtist">{{artist}}</div>
+    </div>
+</script>
+<!--  --------------------------------------------------------- -->
+<script id="favorite-template" type="text/x-handlebars-template">
+    <div class="minimizedSongCard" id="{{id}}">
+        <div class="miniPic"><img src="{{songPic}}"></div>
+        <div class="miniTitle">{{name}}</div>
+        <div class="miniArtist">{{artist}}</div>
+    </div>
+</script>
+<!--  --------------------------------------------------------- -->
+
 
 
     <script src="./jquery/dist/jquery.js"></script>
