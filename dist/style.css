@@ -6,6 +6,14 @@ body {
 
 #container {
     font-family: Tahoma;
+    
+}
+
+.card-image img {
+    height : 60vh;
+    width: 90vh;
+}
+#queryContainer {
     display: grid;
     justify-items: center;
     align-items: center;
