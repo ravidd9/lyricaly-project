@@ -28,7 +28,9 @@ class Renderer {
         $('#favoritesContainer').empty().append(newHTML);
     }
     render(apiManager){
-        this.renderSong(apiManager.songData)
+        if(apiManager.songData.id){
+            this.renderSong(apiManager.songData)
+        }
         this.renderOthers(apiManager.others)
         this.renderFavorites(apiManager.favorites)
     }

@@ -75,13 +75,12 @@ router.post(`/song`, function (req, res) {
     let body = req.body
     let song = new Song(body)
     song.save()
+    res.send(song)
 })
 
 router.delete(`/song/:songId`, function (req, res) {
     let songId = req.params.songId
-    Song.findOneAndDelete({
-        id: songId
-    }, () => {})
+    Song.findOneAndDelete({id: songId}, () => {})
 })
 
 

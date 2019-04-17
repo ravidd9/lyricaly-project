@@ -2,23 +2,19 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-        crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css">
 </head>
 
 <body>
-    <div id="container">
-        <div id="querySearch">
-            <input type="text" placeholder="enter search query here...">
-            <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
-        </div>
-        <div id="queryContainer"></div>
-        <div id="otherContainer"></div>
-        <div id="favoritesContainer"></div>
+  <div id="container">
+    <div id="querySearch">
+      <input type="text" placeholder="enter search query here...">
+      <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
     </div>
     <div id="queryContainer"></div>
   </div>
@@ -121,23 +117,23 @@
 </div>                
 
     </script>
-<!--  --------------------------------------------------------- -->
-<script id="other-template" type="text/x-handlebars-template">
+  <!--  --------------------------------------------------------- -->
+  <script id="other-template" type="text/x-handlebars-template">
     <div class="minimizedSongCard" id="{{id}}">
         <div class="miniPic"><img src="{{songPic}}"></div>
         <div class="miniTitle">{{name}}</div>
         <div class="miniArtist">{{artist}}</div>
     </div>
 </script>
-<!--  --------------------------------------------------------- -->
-<script id="favorite-template" type="text/x-handlebars-template">
+  <!--  --------------------------------------------------------- -->
+  <script id="favorite-template" type="text/x-handlebars-template">
     <div class="minimizedSongCard" id="{{id}}">
         <div class="miniPic"><img src="{{songPic}}"></div>
         <div class="miniTitle">{{name}}</div>
         <div class="miniArtist">{{artist}}</div>
     </div>
 </script>
-<!--  --------------------------------------------------------- -->
+  <!--  --------------------------------------------------------- -->
 
 
 
