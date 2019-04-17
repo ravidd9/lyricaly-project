@@ -99,3 +99,7 @@ grid-area: am ;
     overflow: auto;
     display: inline-block;
 }
+
+.minimizedSongCard:hover{
+    background-color: #fff;
+}
