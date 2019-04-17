@@ -72,10 +72,10 @@ input[type=text] {
     justify-items: center;
     align-items: center;
     grid-template-areas:
-    ". s s s ."
-    ". t o f ."
-    ". t o f ."
-    ". t o f .";
+    ". s s s s ."
+    ". o t t f ."
+    ". o t t f ."
+    ". o t t f .";
 }
 
 #querySearch{
@@ -132,6 +132,10 @@ img{
     /* border: 2px solid black; */
     border-radius: 10%;
     
+}
+iframe{
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 .name{
     grid-area: n;
