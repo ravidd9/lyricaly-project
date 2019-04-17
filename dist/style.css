@@ -1,39 +1,48 @@
 body {
     margin: 0px;
     /* color: white; */
-    background-color:rgb(58, 141, 141);
+    background-color:rgb(33, 165, 165);
 }
 
 #container {
     font-family: Tahoma;
     display: grid;
-    grid-template-columns: 2fr 5fr ;
+    justify-items: center;
+    align-items: center;
     grid-template-areas:
-
-    "s1 s1 s1 s1"
-    "s2 s2 s2 s2"
-    "sc sc sc sc"
-    "sc sc sc sc"
-
+    "s s s s"
+    "t t o f"
+    "t t o f"
+    "t t o f";
 }
+
+#querySearch{
+    grid-area: s ;
+}
+#queryContainer {
+    grid-area: t ;
+    background-color: white;
+}
+#othersContainer {
+    grid-area: o ;
+}
+#favoritesContainer {
+    grid-area: f ;
+}
+
 
 #songSearch {
-    display: grid;
-    grid-area: s1 ;
     grid-template-columns: 4fr 1fr;
-    padding-top: 30px;
+    padding: 30px;
     margin-left: 40px;
     margin-bottom: 40px;
 }
 
-#artistSearch {
-    display: grid;
-    grid-area: s2 ;
-    grid-template-columns: 4fr 1fr;
-    padding-top: 30px;
-    margin-left: 40px;
-    margin-bottom: 40px;
+.btn{
+    margin: 20px;
 }
+
+
 
 input {
     background-color: transparent;
@@ -46,62 +55,4 @@ input {
 
 ::placeholder {
     color: white;
-}
-
-#songCard {
-    grid-area: sc ;
-    display: grid ;
-    width: 95% ;
-    margin: 20px;
-    background-color: rgb(58, 141, 141);
-    display: grid;
-    padding: 10%;
-    justify-items: center;
-    align-items: center;
-    grid-template-areas:
-        "tp tp tp tp"
-        "ls ls ls ls"
-        "am am am am"
-}
-
-
-.lyricsAndSave {
-    grid-area: ls ;
-    grid-template-columns: 4fr 1fr;
-
-}
-
-.appleMusic {
-grid-area: am ;
-}
-
-.titleArtistPic {
-    grid-area: tp ;
-    grid-template-columns: 4fr 1fr;
-    grid-template-areas: 
-    "t t p"
-    "a a p"
-
-}
-
-.title {
-    grid-area: t ;
-}
-
-.artist {
-    grid-area: a ;
-}
-
-.img {
-    grid-area: p ;
-    height : 150px;
-    width : 150px ;
-}
-.lyrics {
-    overflow: auto;
-    display: inline-block;
-}
-
-.minimizedSongCard:hover{
-    background-color: #fff;
 }
