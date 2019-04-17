@@ -69,18 +69,20 @@ router.get(`/song/:id`, function (req, res) {
             let titleFeatured = body.response.song.title_with_featured
             let album
             let albumID
+            let youTubePlayer
             if (body.response.song.album) {
                 album = body.response.song.album.name
                 albumID = body.response.song.album.id
+                youTubePlayer = body.response.song.media[0].url
             }
             else{
                 album = ""
                 albumID = ""
+                youTubePlayer = ""
             }
             let lyrics = await getLyrics(id)
             let songPic = body.response.song.header_image_thumbnail_url
             let applePlayer = body.response.song.apple_music_player_url
-            let youTubePlayer = body.response.song.media[0].url
             let newSong = createSong(name, id, artist, artistID, titleFeatured,
                 album, albumID, lyrics, songPic, applePlayer, youTubePlayer)
             res.send(newSong)
