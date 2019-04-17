@@ -119,4 +119,11 @@ const loadPage = async function () {
     renderer.render(apiManager)
 }
 
+$("#container").on("click", ".circle", async function(){
+    let id = $(this).closest(".songCard").attr("id")
+    console.log(id)
+    await apiManager.getSongData(id)
+    loadPage()
+})
+
 loadPage()

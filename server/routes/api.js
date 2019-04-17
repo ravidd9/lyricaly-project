@@ -73,7 +73,9 @@ router.get(`/song/:id`, function (req, res) {
             if (body.response.song.album) {
                 album = body.response.song.album.name
                 albumID = body.response.song.album.id
-                youTubePlayer = body.response.song.media[0].url
+                link = body.response.song.media[0].url
+                youTubePlayer = link.substring(0,23)
+                + "embed/" + link.substring(31)
             }
             else{
                 album = ""
