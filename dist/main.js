@@ -2,11 +2,6 @@ let apiManager = new ApiManager()
 let renderer = new Renderer()
 
 
-const loadPage = async function () {
-    await apiManager.getDataFromDB()
-    await apiManager.getAutoCompleteFromDB()
-    renderer.render(apiManager)
-}
 
 const querySearch = async function () {
     let query = $("#container").find("input").val()
@@ -39,7 +34,7 @@ const queryDelete = async function () {
 // -------------------------------------------------------
 
 
-function autocomplete(inp, arr) {
+const autocomplete = function (inp, arr) {
 
     var currentFocus;
     inp.addEventListener("input", function (e) {
@@ -110,11 +105,18 @@ function autocomplete(inp, arr) {
     });
 }
 
-autocomplete(document.getElementById("myInput"), apiManager.history);
+
+
 
 
 
 // -------------------------------------------------------
 
+const loadPage = async function () {
+    await apiManager.getDataFromDB()
+    await apiManager.getAutoCompleteFromDB()
+    autocomplete(document.getElementById("myInput"), apiManager.history)
+    renderer.render(apiManager)
+}
 
 loadPage()
