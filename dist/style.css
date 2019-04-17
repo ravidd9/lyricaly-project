@@ -28,9 +28,12 @@ input[type=text] {
   background-color: #f1f1f1;
   width: 100%;
 }
-input[type=submit] {
+.searchBtn {
   background-color: DodgerBlue;
+  padding: 20px;
+  margin: 20px;
   color: #fff;
+  font-weight: bold;
 }
 .autocomplete-items {
   position: absolute;

@@ -3,6 +3,7 @@ const router = express.Router()
 const request = require('request')
 const mongoose = require('mongoose')
 const Song = require('../models/Song')
+const AutoComplete = require('../models/AutoComplete')
 const apiURL = "https://api.genius.com"
 const clientID = "9et69XWfark8Dr2XVjaSXhfMZvhffAhtEc8ItGVKb24H3zExHMOREOsLstWyFBEU"
 const clientS = "ZxEYCaruoE8ffRSmF8XjgGGxNuirRDV7n547saR1I8nTnw55-S96WKDZf_noiO5kDEIgJFxBGi1FdIFFKVLr6A"
@@ -108,8 +109,26 @@ router.delete(`/song/:songId`, function (req, res) {
     }, () => {})
 })
 
+router.get(`/complete`, function (req, res){
+    AutoComplete.find({}).exec((err, autoCompletes) => {
+        let arr = []
+        for (let item of autoCompletes) {
+            arr.push(item.text)
+        }
+        res.send(arr)
+    })
 
+})
 
+router.post(`/complete/:query`, function (req, res) {
+    let query = req.params.query 
+    console.log(query) 
+    let autoComplete = new AutoComplete ( {
+        text : query
+    } )
+    autoComplete.save()
+    res.send(autoComplete)
+})
 
 
 module.exports = router

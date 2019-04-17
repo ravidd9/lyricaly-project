@@ -1,34 +1,39 @@
 let apiManager = new ApiManager()
 let renderer = new Renderer()
 
-      
-const loadPage = async function(){
+
+const loadPage = async function () {
     await apiManager.getDataFromDB()
+    await apiManager.getAutoCompleteFromDB()
     renderer.render(apiManager)
 }
 
-const querySearch = async function(){
-    let query = $("#querySearch").find("input").val()
-    if(query != ""){
-        apiManager.history.push(query)
+const querySearch = async function () {
+    let query = $("#container").find("input").val()
+    await apiManager.addAutoComplete(query)
+    console.log(query)
+    if (query != "") {
+
+        
         await apiManager.getSongID(query)
         renderer.render(apiManager)
     }
 }
 
-const querySave = async function(){
+const querySave = async function () {
     let id = $("#container").closest(".songCard").attr('id')
     console.log(id)
     await apiManager.saveSong(id)
     loadPage()
 }
 
-const queryDelete = async function(){
+const queryDelete = async function () {
     let id = $("#container").find(".songCard").attr('id')
     console.log(id)
     await apiManager.removeSong(id)
     loadPage()
 }
+
 
 
 // -------------------------------------------------------
