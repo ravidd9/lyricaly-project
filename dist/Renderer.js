@@ -27,9 +27,9 @@ class Renderer {
         let newHTML = template({favorites});
         $('#favoritesContainer').empty().append(newHTML);
     }
-    render(){
-        this.renderSong()
-        this.renderOthers()
-        this.renderFavorites()
+    render(apiManager){
+        this.renderSong(apiManager.songData)
+        this.renderOthers(apiManager.others)
+        this.renderFavorites(apiManager.favorites)
     }
 }
