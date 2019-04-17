@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     /* color: white; */
-    background-color:rgb(58, 141, 141);
+    background-color:rgb(33, 165, 165);
 }
 
 #container {
@@ -15,42 +15,42 @@ body {
 }
 #queryContainer {
     display: grid;
+    justify-items: center;
+    align-items: center;
     grid-template-areas:
-
-    "s1 s1 s1 s1"
-    "t  t  o   f"
-    "l  l  o   f"
-    "l  l  o   f"
-
+    "s s s s"
+    "t t o f"
+    "t t o f"
+    "t t o f";
 }
 
+#querySearch{
+    grid-area: s ;
+}
+#queryContainer {
+    grid-area: t ;
+    background-color: white;
+}
+#othersContainer {
+    grid-area: o ;
+}
+#favoritesContainer {
+    grid-area: f ;
+}
+
+
 #songSearch {
-    grid-area: s1 ;
     grid-template-columns: 4fr 1fr;
     padding: 30px;
     margin-left: 40px;
     margin-bottom: 40px;
 }
 
-.titleArtistPic {
-    grid-area: t ;
-
+.btn{
+    margin: 20px;
 }
 
-.lyricsAndBtns {
-    grid-area: l ;
-    width : 80% ;
 
-}
-
-.otherSugg {
-    grid-area: o ;
-
-}
-
-.favorites {
-    grid-area: f ;
-}
 
 input {
     background-color: transparent;
@@ -64,13 +64,3 @@ input {
 ::placeholder {
     color: white;
 }
-
-.songCard { 
-    width : 80% ;
-}
-
-
-
-
-
-
