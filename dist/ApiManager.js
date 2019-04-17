@@ -17,7 +17,7 @@ class ApiManager {
         this.favorites = []
         this.others = []
         this.ids = []
-        this.history = []
+        this.history = ["sia", "drake"]
     }
 
     async getDataFromDB() {

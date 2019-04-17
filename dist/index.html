@@ -15,8 +15,12 @@
 <body>
   <div id="container">
     <div id="querySearch">
-      <input type="text" placeholder="enter search query here...">
-      <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
+      <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text" name="myCountry" placeholder="enter search query here...">
+        </div>
+        <input type="submit">
+    </form>  
     </div>
     <div id="queryContainer"></div>
     <div id="othersContainer">
