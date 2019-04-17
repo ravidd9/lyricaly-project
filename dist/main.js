@@ -10,20 +10,24 @@ const loadPage = async function(){
 const querySearch = async function(){
     let query = $("#querySearch").find("input").val()
     if(query != ""){
+        apiManager.history.push(query)
         await apiManager.getSongID(query)
         renderer.render(apiManager)
     }
 }
 
 const querySave = async function(){
-    let id = $(this).closest(".songCard").attr('id')
-    apiManager.saveSong(id)
+    let id = $("#container").closest(".songCard").attr('id')
+    console.log(id)
+    await apiManager.saveSong(id)
+    loadPage()
 }
 
 const queryDelete = async function(){
-    let id = $(this).closest(".songCard").attr('id')
+    let id = $("#container").find(".songCard").attr('id')
     console.log(id)
-    apiManager.removeSong(id)
+    await apiManager.removeSong(id)
+    loadPage()
 }
 
 loadPage()

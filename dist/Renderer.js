@@ -18,14 +18,14 @@ class Renderer {
         let source = $('#other-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template({others});
-        $('#othersContainer').empty().append(newHTML);
+        $('.others').empty().append(newHTML);
     }
     renderFavorites(favorites){
         console.log(favorites)
         let source = $('#favorite-template').html();
         let template = Handlebars.compile(source);
         let newHTML = template({favorites});
-        $('#favoritesContainer').empty().append(newHTML);
+        $('.favos').empty().append(newHTML);
     }
     render(apiManager){
         if(apiManager.songData.id){

@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cb6fd5316464be0"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
@@ -17,33 +19,38 @@
       <i id="searchIcon" onclick="querySearch()" class="fas fa-search"></i>
     </div>
     <div id="queryContainer"></div>
-    <div id="othersContainer"></div>
-    <div id="favoritesContainer"></div>
+    <div id="othersContainer">
+      <h3>Other Results</h3>
+      <ul class="collection others"></ul>
+    </div>
+    <div id="favoritesContainer">
+      <h3>Favorites</h3>
+      <ul class="collection favos"></ul>
+    </div>
   </div>
- 
-<!-- ------------------------------------------------------------ -->
+
+  <!-- ------------------------------------------------------------ -->
   <script id="song-template" type="text/x-handlebars-template">
     <div class="songCard" id="{{id}}">
-      <div class="row">
-        <div class="col s12">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{songPic}}">
-              <span class="card-title">{{name}}</span>
-            </div>
-            <div class="card-content">
-              <p>Artist: {{artist}}</p>
-              <p>Album name: {{album}}</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+        <div class="row">
+            <div class="col s12">
+              <div class="card">
+                <div class="card-image">
+                  <img src="{{songPic}}">
+                  <span class="card-title">{{name}}</span>
+                </div>
+                <div class="card-content">
+                  <h5>{{artist}}</h5>
+                  <h5>{{album}}</h5>
+                </div>
+                <div class="card-action">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>          
       <div class="lyricsAndSave">
         <div class="row">
-          <div class="col s12">
+          <div class="col s6">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title"></span>
@@ -53,30 +60,40 @@
             </div>
           </div>
         </div>
+        <div class="addthis_inline_share_toolbox"></div>
         <button class="btn waves-effect waves-light" type="submit" name="action" onclick="querySave()">
           <i class="material-icons right">Save</i> 
-        </button>
-        <button class="btn waves-effect waves-light" type="submit" name="action" onclick="queryDelete()">
-          <i class="material-icons right">remove</i>
         </button>
       </div>
     </div>
   </script>
-<!--  --------------------------------------------------------- -->
+  <!--  --------------------------------------------------------- -->
   <script id="other-template" type="text/x-handlebars-template">
-    <div class="minimizedSongCard" id="{{id}}">
-        <div class="miniPic"><img src="{{songPic}}"></div>
-        <div class="miniTitle">{{name}}</div>
-        <div class="miniArtist">{{artist}}</div>
-    </div>
+    {{#each others}}
+    <div class="li songCard" id="{{id}}">
+    <li class="collection-item avatar">
+      <img src="{{songPic}}" alt="" class="circle">
+      <span class="title">{{name}}</span>
+      <p>{{artist}} <br>
+          {{album}}
+      </p>
+    </li>
+  </div>
+    {{/each}}
 </script>
   <!--  --------------------------------------------------------- -->
   <script id="favorite-template" type="text/x-handlebars-template">
-    <div class="minimizedSongCard" id="{{id}}">
-        <div class="miniPic"><img src="{{songPic}}"></div>
-        <div class="miniTitle">{{name}}</div>
-        <div class="miniArtist">{{artist}}</div>
-    </div>
+    {{#each favorites}}
+    <div class="li songCard" id="{{id}}">
+    <li class="collection-item avatar">
+      <img src="{{songPic}}" alt="" class="circle">
+      <span>{{name}}</span><br>
+      <span>{{artist}}</span><br>
+      <span>{{album}}</span>    
+      <i class="far fa-trash-alt secondary-content" onclick="queryDelete()""></i>
+    </li>
+  </div>
+    {{/each}}
 </script>
   <!--  --------------------------------------------------------- -->
 
